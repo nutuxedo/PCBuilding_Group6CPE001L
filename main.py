@@ -1,6 +1,7 @@
 # Start
 print("Welcome to PC Building")
 
+# Ideas
 '''
 Main menu here
  - add most popular pc builds
@@ -9,5 +10,3 @@ Main menu here
  - check saved builds (if logged in)
  - exit program
 '''
-print("ton branch")
-print("i was here")
