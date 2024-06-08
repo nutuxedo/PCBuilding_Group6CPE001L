@@ -9,6 +9,5 @@ Main menu here
  - check saved builds (if logged in)
  - exit program
 '''
-print("example")
-print("test1 branch")
-print("testing222222")
+print("ton branch")
+print("i was here")
