@@ -14,10 +14,11 @@ Main menu here
  - exit program
 '''
 
+
 # Main menu class
 
-class MainMenu():
-    def __init__(self): # Main menu
+class MainMenu:
+    def __init__(self):  # Main menu
         while True:
             operation = input('''
 Welcome to Build-Your-PC!
@@ -44,10 +45,12 @@ Choice: ''')
                 print("You have selected choice 3")
 
             elif operation == '4':
-                print("Thank you for using our service! Hope to see you again!")
-                print('Exiting service...')
-                time.sleep(1)
-                break
+                exit_program = input('Are you sure you want to exit the program? (y/n) ')
+                if exit_program == "y":
+                    print("\nThank you for using our service! Hope to see you again!")
+                    print('Exiting service...')
+                    time.sleep(1)
+                    break
 
             elif operation == '5':
                 print('\nBuild-Your-PC')
@@ -65,12 +68,13 @@ Press any key to go back to the main menu...''')
             else:
                 print("Invalid choice. Please try again.")
 
+
 # Code initialization
 def main():
     print("Launching service...")
     time.sleep(3)
-    menu = MainMenu()
+    MainMenu()
+
 
 if __name__ == "__main__":
     main()
-

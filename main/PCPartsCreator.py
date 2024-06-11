@@ -1,4 +1,5 @@
-class PCPartsCreator():
+# the PC Parts creator system
+class PCPartsCreator:
     def __init__(self):
         while True:
             print('\nWelcome to PC Parts Creator!')
@@ -62,8 +63,12 @@ class PCPartsCreator():
             else:
                 print("Invalid choice. Please try again.")
 
+
+# Code initialization
+
 def main():
     menu = PCPartsCreator()
+
 
 if __name__ == "__main__":
     main()
