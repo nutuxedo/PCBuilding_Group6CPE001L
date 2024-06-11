@@ -1,6 +1,7 @@
 # Start
 # imports
 from PCPartsCreator import PCPartsCreator
+import time
 
 # Ideas here:
 # Check document for components and prices for reference
@@ -19,15 +20,20 @@ class MainMenu():
     def __init__(self): # Main menu
         while True:
             operation = input('''
-Select operation:
-[1] Create your PC
-[2] Track your order
-[3] Saved builds
-[4] Exit program
+Welcome to Build-Your-PC!
+Please, select your choice:
+    
+    [1] Create your PC
+    [2] Track your order
+    [3] Saved builds
+    [4] Exit program
 
-Operation: ''')
+Choice: ''')
             if operation == '1':
-                print("You have selected choice 1 \n")
+                print("You have selected choice 1")
+                time.sleep(2)
+                print('Launching PC Parts Creator system....')
+                time.sleep(3)
                 PCPartsCreator()
 
             elif operation == '2':
@@ -37,6 +43,9 @@ Operation: ''')
                 print("You have selected choice 3")
 
             elif operation == '4':
+                print("Thank you for using our service! Hope to see you again!")
+                print('Exiting service...')
+                time.sleep(1)
                 break
 
             else:
@@ -44,6 +53,8 @@ Operation: ''')
 
 # Code initialization
 def main():
+    print("Launching service...")
+    time.sleep(3)
     menu = MainMenu()
 
 if __name__ == "__main__":
