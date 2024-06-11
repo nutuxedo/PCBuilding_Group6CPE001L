@@ -1,4 +1,7 @@
 # Start
+# imports
+from PCPartsCreator import PCPartsCreator
+
 # Ideas here:
 # Check document for components and prices for reference
 '''
@@ -24,7 +27,8 @@ Select operation:
 
 Operation: ''')
             if operation == '1':
-                print("You have selected choice 1")
+                print("You have selected choice 1 \n")
+                PCPartsCreator()
 
             elif operation == '2':
                 print("You have selected choice 2")
