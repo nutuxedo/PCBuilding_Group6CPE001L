@@ -65,6 +65,9 @@ Thank you for using this service!
 
 Press any key to go back to the main menu...''')
 
+            elif operation == '':
+                print('Please enter a value.')
+
             else:
                 print("Invalid choice. Please try again.")
 
