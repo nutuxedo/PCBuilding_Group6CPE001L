@@ -27,6 +27,7 @@ Please, select your choice:
     [2] Track your order
     [3] Saved builds
     [4] Exit program
+    [5] About
 
 Choice: ''')
             if operation == '1':
@@ -47,6 +48,19 @@ Choice: ''')
                 print('Exiting service...')
                 time.sleep(1)
                 break
+
+            elif operation == '5':
+                print('\nBuild-Your-PC')
+                print('v0.1.0')
+                input('''\nProgram created by these authors:
+
+Vizconde, Rafael Jose G.
+Perias, Anthony
+Braga, Rovic Jay
+
+Thank you for using this service!
+
+Press any key to go back to the main menu...''')
 
             else:
                 print("Invalid choice. Please try again.")

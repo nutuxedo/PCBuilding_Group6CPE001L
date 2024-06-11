@@ -14,7 +14,8 @@ class PCPartsCreator():
             
     [10] Checkout
     [0] Back to main menu
-            ''')
+    
+    Choice: ''')
 
             if components == '1':
                 print("Select your CPUs")
