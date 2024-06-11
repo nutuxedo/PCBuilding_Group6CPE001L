@@ -1,19 +1,19 @@
 class PCPartsCreator():
     def __init__(self):
         while True:
-            print('Welcome to PC Parts Creator!')
+            print('\nWelcome to PC Parts Creator!')
             components = input('''Select your components to add/remove:
-            [1] CPU
-            [2] CPU Cooler
-            [3] Motherboard
-            [4] Memory
-            [5] Storage
-            [6] Video Card
-            [7] Case
-            [8] Power Supply
+    [1] CPU
+    [2] CPU Cooler
+    [3] Motherboard
+    [4] Memory
+    [5] Storage
+    [6] Video Card
+    [7] Case
+    [8] Power Supply
             
-            [10] Checkout
-            [0] Back to main menu
+    [10] Checkout
+    [0] Back to main menu
             ''')
 
             if components == '1':
@@ -55,5 +55,14 @@ class PCPartsCreator():
             elif components == '0':
                 break
 
+            elif components == '':
+                print('Please enter a value.')
+
             else:
                 print("Invalid choice. Please try again.")
+
+def main():
+    menu = PCPartsCreator()
+
+if __name__ == "__main__":
+    main()
