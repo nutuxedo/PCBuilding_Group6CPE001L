@@ -62,7 +62,7 @@ Choice: ''')
             elif operation == '5':
                 os.system('clear')
                 print('\nBuild-Your-PC')
-                print('v0.1.0')
+                print('v0.1.1')
                 input('''\nProgram created by these authors:
 
 Vizconde, Rafael Jose G.
