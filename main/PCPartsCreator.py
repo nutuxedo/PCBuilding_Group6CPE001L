@@ -60,13 +60,8 @@ Choice: ''')
                     break
             elif select_cpu == "5":
                 print("Cancelling operation...")
-                print(f'You have selected {selected_cpu}')
-                confirmation = input("Would you like to confirm this CPU? (Y/n) ")
-                if confirmation == "n":
-                    selected_cpu = ""
-                    print('Confirmation cancelled.')
-                else:
-                    break
+                time.sleep(1)
+                break
             else:
                 print("Wrong selection, please try again.")
                 time.sleep(1)
