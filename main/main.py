@@ -1,5 +1,6 @@
 # Start
 # imports
+import os
 from PCPartsCreator import PCPartsCreator
 import time
 
@@ -20,6 +21,7 @@ Main menu here
 class MainMenu:
     def __init__(self):  # Main menu
         while True:
+            os.system('clear')
             operation = input('''
 Welcome to Build-Your-PC!
 Please, select your choice:
@@ -34,15 +36,20 @@ Choice: ''')
             if operation == '1':
                 print("You have selected choice 1")
                 time.sleep(2)
+                os.system('clear')
                 print('Launching PC Parts Creator system....')
                 time.sleep(3)
                 PCPartsCreator()
 
             elif operation == '2':
                 print("You have selected choice 2")
+                time.sleep(1)
+                os.system('clear')
 
             elif operation == '3':
                 print("You have selected choice 3")
+                time.sleep(1)
+                os.system('clear')
 
             elif operation == '4':
                 exit_program = input('Are you sure you want to exit the program? (y/n) ')
@@ -53,6 +60,7 @@ Choice: ''')
                     break
 
             elif operation == '5':
+                os.system('clear')
                 print('\nBuild-Your-PC')
                 print('v0.1.0')
                 input('''\nProgram created by these authors:
@@ -67,10 +75,12 @@ Press any key to go back to the main menu...''')
 
             elif operation == '':
                 print('Please enter a value.')
+                time.sleep(1)
 
             else:
                 print("Invalid choice. Please try again.")
-
+                time.sleep(1)
+            os.system('clear')
 
 # Code initialization
 def main():
