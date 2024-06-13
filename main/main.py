@@ -1,7 +1,7 @@
 # v0.2.0dev
 # imports
 import os
-from PCPartsCreator import PCPartsCreator
+from PCPartsCreatorMenu import PCPartsCreatorMenu
 import time
 
 # Ideas here:
@@ -16,12 +16,18 @@ Main menu here
 '''
 
 
+# Global functions
+
+def clear_screen():
+    os.system('clear')
+
+
 # Main menu class
 
 class MainMenu:
     def __init__(self):  # Main menu
         while True:
-            os.system('clear')
+            clear_screen()
             operation = input('''
 Welcome to Build-Your-PC!
 Please, select your choice:
@@ -35,21 +41,21 @@ Please, select your choice:
 Choice: ''')
             if operation == '1':
                 print("You have selected choice 1")
-                time.sleep(2)
-                os.system('clear')
+                time.sleep(1)
+                clear_screen()
                 print('Launching PC Parts Creator system....')
                 time.sleep(3)
-                PCPartsCreator()
+                PCPartsCreatorMenu()
 
             elif operation == '2':
                 print("You have selected choice 2")
                 time.sleep(1)
-                os.system('clear')
+                clear_screen()
 
             elif operation == '3':
                 print("You have selected choice 3")
                 time.sleep(1)
-                os.system('clear')
+                clear_screen()
 
             elif operation == '4':
                 exit_program = input('Are you sure you want to exit the program? (y/n) ')
@@ -60,7 +66,7 @@ Choice: ''')
                     break
 
             elif operation == '5':
-                os.system('clear')
+                clear_screen()
                 print('\nBuild-Your-PC')
                 print('v0.2.0dev')
                 input('''\nProgram created by these authors:
@@ -71,7 +77,7 @@ Braga, Rovic Jay
 
 Thank you for using this service!
 
-Press any key to go back to the main menu...''')
+Press Enter to go back to the main menu...''')
 
             elif operation == '':
                 print('Please enter a value.')
@@ -80,10 +86,12 @@ Press any key to go back to the main menu...''')
             else:
                 print("Invalid choice. Please try again.")
                 time.sleep(1)
-            os.system('clear')
+                continue
+
 
 # Code initialization
 def main():
+    clear_screen()
     print("Launching service...")
     time.sleep(3)
     MainMenu()

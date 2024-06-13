@@ -1,16 +1,25 @@
 # imports
 import os
 import time
+from CPUSelection import CPUSel
+
+
+# Global functions
+
+def clear_screen():
+    os.system('clear')
+
 
 # Components here
 class CPUs:
+
     # This is temporary, going to find a way on how to optimize this code
     # planning this to turn this into a list/dictionary on a different python file
     # For now, this would do
     def __init__(self):
+        self.selected_cpu = None
         while True:
-            os.system('clear')
-            selected_cpu = ''
+            clear_screen()
             print("\nSelect your CPUs")
             select_cpu = input('''
     [1] Intel Core i9
@@ -23,38 +32,38 @@ class CPUs:
 Choice: ''')
 
             if select_cpu == "1":
-                selected_cpu = 'Intel Core i9'
-                print(f'You have selected {selected_cpu}')
+                self.selected_cpu = 'Intel Core i9'
+                print(f'You have selected {self.selected_cpu}')
                 confirmation = input("Would you like to confirm this CPU? (Y/n) ")
                 if confirmation == "n":
-                    selected_cpu = ""
+                    self.selected_cpu = None
                     print('Confirmation cancelled.')
                 else:
                     break
             elif select_cpu == "2":
-                selected_cpu = 'Intel Core i7'
-                print(f'You have selected {selected_cpu}')
+                self.selected_cpu = 'Intel Core i7'
+                print(f'You have selected {self.selected_cpu}')
                 confirmation = input("Would you like to confirm this CPU? (Y/n) ")
                 if confirmation == "n":
-                    selected_cpu = ""
+                    self.selected_cpu = None
                     print('Confirmation cancelled.')
                 else:
                     break
             elif select_cpu == "3":
-                selected_cpu = 'AMD Ryzen 9'
-                print(f'You have selected {selected_cpu}')
+                self.selected_cpu = 'AMD Ryzen 9'
+                print(f'You have selected {self.selected_cpu}')
                 confirmation = input("Would you like to confirm this CPU? (Y/n) ")
                 if confirmation == "n":
-                    selected_cpu = ""
+                    self.selected_cpu = None
                     print('Confirmation cancelled.')
                 else:
                     break
             elif select_cpu == "4":
-                selected_cpu = 'AMD Ryzen 5'
-                print(f'You have selected {selected_cpu}')
+                self.selected_cpu = 'AMD Ryzen 5'
+                print(f'You have selected {self.selected_cpu}')
                 confirmation = input("Would you like to confirm this CPU? (Y/n) ")
                 if confirmation == "n":
-                    selected_cpu = ""
+                    self.selected_cpu = None
                     print('Confirmation cancelled.')
                 else:
                     break
@@ -65,13 +74,18 @@ Choice: ''')
             else:
                 print("Wrong selection, please try again.")
                 time.sleep(1)
-                os.system('clear')
+                clear_screen()
+
 
 # the PC Parts creator system
-class PCPartsCreator:
+class PCPartsCreatorMenu:
     def __init__(self):
+        self.selected_cpu = None
+        self.run()
+
+    def run(self):
         while True:
-            os.system('clear')
+            clear_screen()
             print('\nWelcome to PC Parts Creator!')
             components = input('''Select your components to add/remove:
 
@@ -83,14 +97,16 @@ class PCPartsCreator:
     [6] Video Card
     [7] Case
     [8] Power Supply
-            
+     
+    [9] Save/Load build        
     [10] Checkout
     [0] Back to main menu
     
     Choice: ''')
 
             if components == '1':
-                CPUs()
+                cpu = CPUs()
+                self.selected_cpu = cpu.selected_cpu
 
             elif components == '2':
                 print("\nSelect your Cooler:")
@@ -120,9 +136,20 @@ class PCPartsCreator:
                 print("\nSelect your Power Supply")
                 # PSU Class here
 
+            elif components == '9':
+                print('\nSave/Load build function soon')
+                time.sleep(1)
+
             elif components == '10':
-                print('\nCheckout')
-                print(CPUs)
+                while True:
+                    clear_screen()
+                    print('\nCheckout')
+                    if self.selected_cpu:
+                        print(f'CPU: {self.selected_cpu}')
+                    else:
+                        print("CPU: Not selected")
+                    input('\nPress Enter to continue.')
+                    break
 
             elif components == '0':
                 print('\nAre you sure that you want to go back to the main menu?')
@@ -130,7 +157,7 @@ class PCPartsCreator:
                 if confirmation == "n":
                     continue
                 else:
-                    os.system('clear')
+                    clear_screen()
                     break
 
             elif components == '':
@@ -144,7 +171,7 @@ class PCPartsCreator:
 # Code initialization
 
 def main():
-    PCPartsCreator()
+    PCPartsCreatorMenu()
 
 
 if __name__ == "__main__":
