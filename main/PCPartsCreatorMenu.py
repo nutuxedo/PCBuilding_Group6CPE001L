@@ -77,7 +77,7 @@ Choice: ''')
                 clear_screen()
 
 
-# the PC Parts creator system
+# the PC Parts creator system - main menu
 class PCPartsCreatorMenu:
     def __init__(self):
         self.selected_cpu = None
