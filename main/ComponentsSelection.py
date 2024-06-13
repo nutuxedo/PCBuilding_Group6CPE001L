@@ -1,4 +1,5 @@
-# CPU Selection menu
+# Components Selection menu
+# (do not run this file on its own)
 # imports
 import os
 import time
@@ -15,6 +16,8 @@ class CPUSel:
     # Add functionalities:
     # - When user already confirmed a CPU and wants to re-pick, user should see a selected CPU from the picker
     # - Make the variable accessible to PCPartsCreatorMenu.py and others
+    #
+    # When all functionalities done - REPEAT FOR THE OTHER COMPONENTS
     def __init__(self):
         self.selected_cpu = None
         self.cpu_options = {
@@ -58,7 +61,35 @@ class CPUSel:
                 clear_screen()
 
 
-# Code initialization for running
+class CPUCoolerSel:
+    print("Testing")
+
+
+class MoboSel:
+    print("Testing")
+
+
+class RAMSel:
+    print("Testing")
+
+
+class ROMSel:
+    print("Testing")
+
+
+class GPUSel:
+    print("Testing")
+
+
+class CaseSel:
+    print("Testing")
+
+
+class PSUSel:
+    print("Testing")
+
+
+# Code initialization for running (do not run this file on its own)
 def main():
     CPUSel()
 

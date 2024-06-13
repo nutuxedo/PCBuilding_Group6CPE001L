@@ -1,7 +1,7 @@
 # imports
 import os
 import time
-from CPUSelection import CPUSel
+from ComponentsSelection import CPUSel
 
 
 # Global functions
