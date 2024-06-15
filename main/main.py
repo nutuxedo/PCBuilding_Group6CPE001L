@@ -1,7 +1,7 @@
 # v0.2.0dev
 # imports
 import os
-from PCPartsCreatorMenu import PCPartsCreatorMenu
+from PCSelectionMenu import PCPartsCreatorMenu
 import time
 
 # Ideas here:
@@ -43,7 +43,7 @@ Choice: ''')
                 print("You have selected choice 1")
                 time.sleep(1)
                 clear_screen()
-                print('Launching PC Parts Creator system....')
+                print('Launching PC Selection menu....')
                 time.sleep(3)
                 PCPartsCreatorMenu()
 
