@@ -19,7 +19,7 @@ Main menu here
 # Global functions
 
 def clear_screen():
-    os.system('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 # Main menu class

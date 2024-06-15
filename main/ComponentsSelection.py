@@ -7,7 +7,7 @@ import time
 
 # Global Functions
 def clear_screen():
-    os.system('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 # Main class
