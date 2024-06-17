@@ -43,24 +43,29 @@ Choice: ''')
                 print("You have selected choice 1")
                 time.sleep(1)
                 clear_screen()
-                print('Launching PC Selection menu....')
+                print('Connecting to servers...')
+                time.sleep(4)
+                print('Connected!')
+                time.sleep(1)
+                print('Starting PC Selection menu program....')
                 time.sleep(3)
                 PCPartsCreatorMenu()
 
             elif operation == '2':
-                print("You have selected choice 2")
+                print("You have selected choice 2- Work in progress")
                 time.sleep(1)
                 clear_screen()
 
             elif operation == '3':
-                print("You have selected choice 3")
+                print("You have selected choice 3 - Work in progress")
                 time.sleep(1)
                 clear_screen()
 
             elif operation == '4':
                 exit_program = input('Are you sure you want to exit the program? (y/n) ')
                 if exit_program == "y":
-                    print("\nThank you for using our service! Hope to see you again!")
+                    clear_screen()
+                    print("Thank you for using our service! Hope to see you again!")
                     print('Exiting service...')
                     time.sleep(1)
                     break

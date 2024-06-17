@@ -81,7 +81,7 @@ class PCPartsCreatorMenu:
                 time.sleep(1)
 
             elif components == '10':
-                while True:
+                while True:  # Checkout system - modularize this to its own file (WIP @ CheckoutSystem.py)
                     clear_screen()
                     total_cost = 0
                     print('\nCheckout cart')
@@ -168,10 +168,14 @@ Choice: ''')
             elif components == '0':
                 print('\nAre you sure that you want to go back to the main menu?')
                 confirmation = input("Doing this will lose all of your pending items! (Y/n) ")
-                if confirmation == "n":
+                if confirmation.lower() == "n":
                     continue
                 else:
                     clear_screen()
+                    print('Ending services...')
+                    time.sleep(2)
+                    print('Returning to the main menu...')
+                    time.sleep(2)
                     break
 
             elif components == '':
