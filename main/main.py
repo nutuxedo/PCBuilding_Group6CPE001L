@@ -4,18 +4,6 @@ import os
 from PCSelectionMenu import PCPartsCreatorMenu
 import time
 
-# Ideas here:
-# Check document for components and prices for reference
-'''
-Main menu here
- - add most popular pc builds
- - create-your-pc picker
- - credentials
- - track your order (from receipt)
- - exit program
-'''
-
-
 # Global functions
 
 def clear_screen():
@@ -33,8 +21,8 @@ Welcome to Build-Your-PC!
 Please, select your choice:
     
     [1] Create your PC
-    [2] Track your order
-    [3] Saved builds
+    [2] Saved builds
+    
     [4] Exit program
     [5] About
 
@@ -52,12 +40,7 @@ Choice: ''')
                 PCPartsCreatorMenu()
 
             elif operation == '2':
-                print("You have selected choice 2- Work in progress")
-                time.sleep(1)
-                clear_screen()
-
-            elif operation == '3':
-                print("You have selected choice 3 - Work in progress")
+                print("You have selected choice 2 - Work in progress")
                 time.sleep(1)
                 clear_screen()
 
