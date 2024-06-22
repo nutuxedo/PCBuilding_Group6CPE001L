@@ -18,16 +18,16 @@ class MainMenu:
         while True:
             clear_screen()
             operation = input('''
-Welcome to Build-Your-PC!
+Welcome to the World of Tomorrow!
 Please, select your choice:
     
-    [1] Create your PC
+    [1] Start building your PC!
     [2] Saved builds
     
     [4] Exit program
     [5] About
 
-Choice: ''')
+Type your choice and press Enter to select: ''')
             if operation == '1':
                 print("You have selected choice 1")
                 time.sleep(1)
@@ -56,9 +56,9 @@ Choice: ''')
 
             elif operation == '5':
                 clear_screen()
-                print('\nBuild-Your-PC')
+                print('\nWorld of Tomorrow')
                 print('v0.2.0dev')
-                input('''\nProgram created by these authors:
+                input('''\nService created by these authors:
 
 Vizconde, Rafael Jose G.
 Perias, Anthony

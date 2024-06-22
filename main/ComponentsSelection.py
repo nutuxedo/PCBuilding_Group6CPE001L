@@ -36,10 +36,9 @@ class CPUSel:
     [3] AMD Ryzen 7 7700x    - P18,000
     [4] AMD Ryzen 5 7600x    - P10,000
 
-    [9] Remove component
-    [10] Cancel
+    [10] Cancel and return to the components list
 
-    Choice: ''')
+    Type your choice and press Enter to select: ''')
 
             if select_cpu in self.cpu_options:
                 self.selected_cpu = self.cpu_options[select_cpu]
@@ -99,10 +98,9 @@ class CPUCoolerSel:
     [3] Corsair iCUE H100i      - P9,800
     [4] Noctua NH-D15 Chromax   - P7,300
 
-    [9] Remove component
-    [10] Cancel
+    [10] Cancel and return to the components list
 
-    Choice: ''')
+    Type your choice and press Enter to select: ''')
 
             if select_cooler in self.cooler_options:
                 self.selected_cooler = self.cooler_options[select_cooler]
@@ -159,10 +157,9 @@ class MoboSel:
     [3] GIGABYTE H510M-H MATX       - P3,750
     [4] ASRock B550M Pro            - P5,650
 
-    [9] Remove component
-    [10] Cancel
+    [10] Cancel and return to the components list
 
-    Choice: ''')
+    Type your choice and press Enter to select: ''')
 
             if select_cooler in self.mobo_options:
                 self.selected_mobo = self.mobo_options[select_cooler]
@@ -219,10 +216,10 @@ class RAMSel:
     [3] TEAMGROUP T-Force Vulkan 16GB (2x8GB)    - P2,250
     [4] Kingston Fury Beast 16GB (2x8GB)         - P3,150
 
-    [9] Remove component
-    [10] Cancel
+    
+    [10] Cancel and return to the components list
 
-    Choice: ''')
+    Type your choice and press Enter to select: ''')
 
             if select_cooler in self.ram_options:
                 self.selected_ram = self.ram_options[select_cooler]
@@ -279,10 +276,9 @@ class ROMSel:
     [3] Western Digital SN350 500GB NVMe M.2    - P2,250
     [4] Seagate SKYHAWK 1TB SATA                - P3,100
 
-    [9] Remove component
-    [10] Cancel
+    [10] Cancel and return to the components list
 
-    Choice: ''')
+    Type your choice and press Enter to select: ''')
 
             if select_cooler in self.rom_options:
                 self.selected_rom = self.rom_options[select_cooler]
@@ -339,10 +335,9 @@ class GPUSel:
     [3] Sapphire Pure AMD Radeon RX7700XT 12GB GDDR6       - P28,700
     [4] AORUS Radeon RX 5700 XT 8GB GDDR6                  - P23,000
 
-    [9] Remove component
-    [10] Cancel
+    [10] Cancel and return to the components list
 
-    Choice: ''')
+    Type your choice and press Enter to select: ''')
 
             if select_cooler in self.gpu_options:
                 self.selected_gpu = self.gpu_options[select_cooler]
@@ -399,10 +394,9 @@ class CaseSel:
     [3] Corsair 2500X Mid-Tower Dual Chamber          - P8,300
     [4] Cooler Master Qube 500 Flatpack Mid-Tower ATX - P4,600
 
-    [9] Remove component
-    [10] Cancel
+    [10] Cancel and return to the components list
 
-    Choice: ''')
+    Type your choice and press Enter to select: ''')
 
             if select_cooler in self.case_options:
                 self.selected_case = self.case_options[select_cooler]
@@ -459,10 +453,9 @@ class PSUSel:
     [3] Cooler Master MWE Gold 750W Full Modular           - P5,700
     [4] be quiet! Straight Power 11 Gold 850W Full Modular - P7,800
 
-    [9] Remove component
-    [10] Cancel
+    [10] Cancel and return to the components list
 
-    Choice: ''')
+    Type your choice and press Enter to select: ''')
 
             if select_cooler in self.psu_options:
                 self.selected_psu = self.psu_options[select_cooler]

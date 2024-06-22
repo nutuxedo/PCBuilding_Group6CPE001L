@@ -27,8 +27,10 @@ class PCPartsCreatorMenu:
     def run(self):
         while True:
             clear_screen()
-            print('\nWelcome to the PC Selection menu')
+            print("\nWelcome to the World of Tomorrow's PC Selection menu")
             components = input('''Select your components to add/replace:
+
+Note: To remove a selected component, enter the desired number of the said component to remove the selection.
 
     [1] CPU
     [2] CPU Cooler
@@ -43,7 +45,7 @@ class PCPartsCreatorMenu:
     [10] Checkout
     [0] Back to main menu
     
-    Choice: ''')
+    Type your choice and press Enter to select: ''')
 
             if components == '1':
                 cpu = CPUSel()
@@ -132,9 +134,9 @@ class PCPartsCreatorMenu:
                     chkout_selection = input('''To replace one or more components, go back and select the component/s.\n
     [9] Back
     [10] Clear all components
-    [Enter] Continue to checkout
+    [PRESS Enter] Continue to checkout
                     
-Choice: ''')
+Type your choice and press Enter to select: ''')
                     if chkout_selection == "9":
                         break
                     elif chkout_selection == "10":
