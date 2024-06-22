@@ -189,6 +189,7 @@ Type your choice and press Enter to select: ''')
 
             else:
                 print("Invalid choice. Please try again.")
+                time.sleep(1)
 
     def conversion(self):
         conversionlist = []

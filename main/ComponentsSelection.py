@@ -43,7 +43,7 @@ class CPUSel:
             if select_cpu in self.cpu_options:
                 self.selected_cpu = self.cpu_options[select_cpu]
                 print(f'You have selected {self.selected_cpu["name"]} for P{self.selected_cpu["price"]}')
-                confirmation = input("Would you like to confirm this CPU? (Y/n) ")
+                confirmation = input("Would you like to confirm this CPU? \nType y or n and press Enter. (Y/n) ")
                 if confirmation.lower() == "n":
                     self.selected_cpu = None
                     print('Confirmation cancelled.')
@@ -62,7 +62,7 @@ class CPUSel:
                     time.sleep(1)
                     continue
                 else:
-                    remove_confirmation = input("\nWould you like to remove the selected CPU? (Y/n)")
+                    remove_confirmation = input("\nWould you like to remove the selected CPU? \nType y or n and press Enter. (Y/n) ")
                     if remove_confirmation.lower() == "Y":
                         self.selected_cpu = None
                         print('CPU removed.')
@@ -105,7 +105,7 @@ class CPUCoolerSel:
             if select_cooler in self.cooler_options:
                 self.selected_cooler = self.cooler_options[select_cooler]
                 print(f'You have selected {self.selected_cooler["name"]} for P{self.selected_cooler["price"]}')
-                confirmation = input("Would you like to confirm this CPU Cooler? (Y/n) ")
+                confirmation = input("Would you like to confirm this CPU Cooler? \nType y or n and press Enter. (Y/n)  ")
                 if confirmation.lower() == "n":
                     self.selected_cooler = None
                     print('Confirmation cancelled.')
@@ -123,7 +123,7 @@ class CPUCoolerSel:
                     time.sleep(1)
                     continue
                 else:
-                    remove_confirmation = input("\nWould you like to remove the selected CPU Cooler? (Y/n)")
+                    remove_confirmation = input("\nWould you like to remove the selected CPU Cooler? \nType y or n and press Enter. (Y/n) ")
                     if remove_confirmation.lower() == "n":
                         self.selected_cooler = None
                         print('CPU removed.')
@@ -164,7 +164,7 @@ class MoboSel:
             if select_cooler in self.mobo_options:
                 self.selected_mobo = self.mobo_options[select_cooler]
                 print(f'You have selected {self.selected_mobo["name"]} for P{self.selected_mobo["price"]}')
-                confirmation = input("Would you like to confirm this CPU Cooler? (Y/n) ")
+                confirmation = input("Would you like to confirm this motherboard? \nType y or n and press Enter. (Y/n)  ")
                 if confirmation.lower() == "n":
                     self.selected_mobo = None
                     print('Confirmation cancelled.')
@@ -182,7 +182,7 @@ class MoboSel:
                     time.sleep(1)
                     continue
                 else:
-                    remove_confirmation = input("\nWould you like to remove the selected CPU Cooler? (Y/n)")
+                    remove_confirmation = input("\nWould you like to remove the selected CPU Cooler? \nType y or n and press Enter. (Y/n) ")
                     if remove_confirmation.lower() == "n":
                         self.selected_mobo = None
                         print('CPU removed.')
@@ -224,7 +224,7 @@ class RAMSel:
             if select_cooler in self.ram_options:
                 self.selected_ram = self.ram_options[select_cooler]
                 print(f'You have selected {self.selected_ram["name"]} for P{self.selected_ram["price"]}')
-                confirmation = input("Would you like to confirm this CPU Cooler? (Y/n) ")
+                confirmation = input("Would you like to confirm this memory component? \nType y or n and press Enter. (Y/n)  ")
                 if confirmation.lower() == "n":
                     self.selected_ram = None
                     print('Confirmation cancelled.')
@@ -242,7 +242,7 @@ class RAMSel:
                     time.sleep(1)
                     continue
                 else:
-                    remove_confirmation = input("\nWould you like to remove the selected CPU Cooler? (Y/n)")
+                    remove_confirmation = input("\nWould you like to remove the selected CPU Cooler? \nType y or n and press Enter. (Y/n) ")
                     if remove_confirmation.lower() == "n":
                         self.selected_ram = None
                         print('CPU removed.')
@@ -283,7 +283,7 @@ class ROMSel:
             if select_cooler in self.rom_options:
                 self.selected_rom = self.rom_options[select_cooler]
                 print(f'You have selected {self.selected_rom["name"]} for P{self.selected_rom["price"]}')
-                confirmation = input("Would you like to confirm this CPU Cooler? (Y/n) ")
+                confirmation = input("Would you like to confirm this storage component? \nType y or n and press Enter. (Y/n)  ")
                 if confirmation.lower() == "n":
                     self.selected_rom = None
                     print('Confirmation cancelled.')
@@ -301,7 +301,7 @@ class ROMSel:
                     time.sleep(1)
                     continue
                 else:
-                    remove_confirmation = input("\nWould you like to remove the selected CPU Cooler? (Y/n)")
+                    remove_confirmation = input("\nWould you like to remove the selected CPU Cooler? \nType y or n and press Enter. (Y/n) ")
                     if remove_confirmation.lower() == "n":
                         self.selected_rom = None
                         print('CPU removed.')
@@ -342,7 +342,7 @@ class GPUSel:
             if select_cooler in self.gpu_options:
                 self.selected_gpu = self.gpu_options[select_cooler]
                 print(f'You have selected {self.selected_gpu["name"]} for P{self.selected_gpu["price"]}')
-                confirmation = input("Would you like to confirm this CPU Cooler? (Y/n) ")
+                confirmation = input("Would you like to confirm this graphics card? \nType y or n and press Enter. (Y/n)  ")
                 if confirmation.lower() == "n":
                     self.selected_gpu = None
                     print('Confirmation cancelled.')
@@ -360,7 +360,7 @@ class GPUSel:
                     time.sleep(1)
                     continue
                 else:
-                    remove_confirmation = input("\nWould you like to remove the selected CPU Cooler? (Y/n)")
+                    remove_confirmation = input("\nWould you like to remove the selected CPU Cooler? \nType y or n and press Enter. (Y/n) ")
                     if remove_confirmation.lower() == "n":
                         self.selected_gpu = None
                         print('CPU removed.')
@@ -401,7 +401,7 @@ class CaseSel:
             if select_cooler in self.case_options:
                 self.selected_case = self.case_options[select_cooler]
                 print(f'You have selected {self.selected_case["name"]} for P{self.selected_case["price"]}')
-                confirmation = input("Would you like to confirm this CPU Cooler? (Y/n) ")
+                confirmation = input("Would you like to confirm this PC case? \nType y or n and press Enter. (Y/n)  ")
                 if confirmation.lower() == "n":
                     self.selected_case = None
                     print('Confirmation cancelled.')
@@ -419,7 +419,7 @@ class CaseSel:
                     time.sleep(1)
                     continue
                 else:
-                    remove_confirmation = input("\nWould you like to remove the selected CPU Cooler? (Y/n)")
+                    remove_confirmation = input("\nWould you like to remove the selected CPU Cooler? \nType y or n and press Enter. (Y/n) ")
                     if remove_confirmation.lower() == "n":
                         self.selected_case = None
                         print('CPU removed.')
@@ -460,7 +460,7 @@ class PSUSel:
             if select_cooler in self.psu_options:
                 self.selected_psu = self.psu_options[select_cooler]
                 print(f'You have selected {self.selected_psu["name"]} for P{self.selected_psu["price"]}')
-                confirmation = input("Would you like to confirm this CPU Cooler? (Y/n) ")
+                confirmation = input("Would you like to confirm this power supply? \nType y or n and press Enter. (Y/n)  ")
                 if confirmation.lower() == "n":
                     self.selected_psu = None
                     print('Confirmation cancelled.')
@@ -478,7 +478,7 @@ class PSUSel:
                     time.sleep(1)
                     continue
                 else:
-                    remove_confirmation = input("\nWould you like to remove the selected CPU Cooler? (Y/n)")
+                    remove_confirmation = input("\nWould you like to remove the selected CPU Cooler? \nType y or n and press Enter. (Y/n) ")
                     if remove_confirmation.lower() == "n":
                         self.selected_psu = None
                         print('CPU removed.')
