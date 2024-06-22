@@ -2,7 +2,7 @@
 # imports
 import os
 import time
-from ComponentsSelection import *
+from PCSelectionMenu import *
 
 
 # global functions
@@ -12,7 +12,8 @@ def clear_screen():
 
 class CheckoutSys:
     def __init__(self):
-        print("Hello World!")
+        clear_screen()
+
 
 # Code initialization
 def main():

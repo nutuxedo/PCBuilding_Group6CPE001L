@@ -2,6 +2,7 @@
 import os
 import time
 from ComponentsSelection import *
+from CheckoutSystem import *
 
 
 # Global functions
@@ -38,7 +39,7 @@ class PCPartsCreatorMenu:
     [7] Case
     [8] Power Supply
      
-    [9] Save/Load build        
+    [9] Save/Load build         
     [10] Checkout
     [0] Back to main menu
     
@@ -85,7 +86,7 @@ class PCPartsCreatorMenu:
                     clear_screen()
                     total_cost = 0
                     print('\nCheckout cart')
-                    print('---------------------')
+                    print('========================================')
                     if self.selected_cpu:
                         print(f'CPU: {self.selected_cpu["name"]} - P{self.selected_cpu["price"]}')
                         total_cost += self.selected_cpu["price"]
@@ -126,7 +127,7 @@ class PCPartsCreatorMenu:
                         total_cost += self.selected_psu["price"]
                     else:
                         print("Power Supply: Not selected")
-                    print("---------------")
+                    print("========================================")
                     print(f"\nInitial Total: P{total_cost}")
                     chkout_selection = input('''To replace one or more components, go back and select the component/s.\n
     [9] Back
@@ -160,7 +161,9 @@ Choice: ''')
                     elif chkout_selection == '':
                         print('Proceeding to checkout....')
                         time.sleep(1)
-                        break
+                        PCPartsCreatorMenu.conversion(self)
+                        CheckoutSys()
+
                     else:
                         print("Invalid choice, please try again.")
                         time.sleep(1)
@@ -184,6 +187,22 @@ Choice: ''')
 
             else:
                 print("Invalid choice. Please try again.")
+
+    def conversion(self):
+        conversionlist = []
+        for component_d in [self.selected_cpu, self.selected_cooler, self.selected_mobo,
+                            self.selected_ram, self.selected_rom, self.selected_gpu, self.selected_case,
+                            self.selected_psu]:
+            if component_d:
+                conversionlist.extend(component_d.items())
+        conversionlist = [item for component_d in [self.selected_cpu, self.selected_cooler, self.selected_mobo,
+                                                   self.selected_ram, self.selected_rom, self.selected_gpu,
+                                                   self.selected_case,
+                                                   self.selected_psu]
+                          if component_d for item in component_d.items()]
+        with open('draftreceipt.txt', 'w+') as f:
+            for item in conversionlist:
+              f.write(f'{item}\n')
 
 
 # Code initialization
