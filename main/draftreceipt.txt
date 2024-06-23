@@ -1,0 +1,8 @@
+CPU: Intel Core i7 13700k - P20000
+CPU Cooler: NZXT KRAKEN 240 AIO - P9000
+Motherboard: None
+Memory: None
+Storage: None
+Video Card: None
+Case: Corsair 2500X Mid-Tower Dual Chamber - P8300
+Power Supply: None

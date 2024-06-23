@@ -42,7 +42,7 @@ Note: To remove a selected component, enter the desired number of the said compo
     [8] Power Supply
      
     [9] Save/Load build         
-    [10] Checkout
+    [10] Cart
     [0] Back to main menu
     
     Type your choice and press Enter to select: ''')
@@ -192,20 +192,23 @@ Type your choice and press Enter to select: ''')
                 time.sleep(1)
 
     def conversion(self):
-        conversionlist = []
-        for component_d in [self.selected_cpu, self.selected_cooler, self.selected_mobo,
-                            self.selected_ram, self.selected_rom, self.selected_gpu, self.selected_case,
-                            self.selected_psu]:
-            if component_d:
-                conversionlist.extend(component_d.items())
-        conversionlist = [item for component_d in [self.selected_cpu, self.selected_cooler, self.selected_mobo,
-                                                   self.selected_ram, self.selected_rom, self.selected_gpu,
-                                                   self.selected_case,
-                                                   self.selected_psu]
-                          if component_d for item in component_d.items()]
-        with open('draftreceipt.txt', 'w+') as f:
-            for item in conversionlist:
-              f.write(f'{item}\n')
+        conversionlist = [
+            ("CPU", self.selected_cpu),
+            ("CPU Cooler", self.selected_cooler),
+            ("Motherboard", self.selected_mobo),
+            ("Memory", self.selected_ram),
+            ("Storage", self.selected_rom),
+            ("Video Card", self.selected_gpu),
+            ("Case", self.selected_case),
+            ("Power Supply", self.selected_psu)
+        ]
+
+        with open('draftreceipt.txt', 'w') as f:
+            for component_type, component in conversionlist:
+                if component:
+                    f.write(f'{component_type}: {component["name"]} - P{component["price"]}\n')
+                else:
+                    f.write(f'{component_type}: None\n')
 
 
 # Code initialization

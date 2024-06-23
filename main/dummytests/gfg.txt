@@ -1,5 +1,5 @@
 ========================================
-Build-Your-PC Service Official Receipt
+World of Tomorrow Service Official Receipt
 ========================================
 CPU: Intel
 P300
@@ -18,4 +18,4 @@ P100
 Power Supply: Corsair
 P120
 ========================================
-Total Price: $1520
+Total Price: P1520
