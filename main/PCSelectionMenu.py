@@ -165,6 +165,18 @@ Type your choice and press Enter to select: ''')
                         time.sleep(1)
                         PCPartsCreatorMenu.conversion(self)
                         CheckoutSys()
+                        while True:
+                            clear_screen()
+                            confirm = input('''Do you want to return to the main menu or exit the program?
+
+    [1] Return to main menu
+    [2] Exit program
+
+    Type your choice and press Enter to select: ''')
+                            if confirm.lower == "1":
+                                break
+                            elif confirm.lower == "2":
+                                return
 
                     else:
                         print("Invalid choice, please try again.")

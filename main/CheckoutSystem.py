@@ -29,12 +29,15 @@ class CheckoutSys:
                 print("Pinpointing location....")
                 time.sleep(5)
                 print("Success!")
+                time.sleep(1)
                 RecieptSys()
+                break
 
             elif payment_system == "2":
                 print("Payment system for credit/debit cards is down for maintenance.")
                 time.sleep(1)
                 continue
+
 
 class RecieptSys:
     def __init__(self):
@@ -48,18 +51,13 @@ class RecieptSys:
 
     def load_components(self):
         components = []
-        inital_total_cost = 0
         try:
             with open('draftreceipt.txt', 'r') as file:
                 for line in file:
                     components.append(line.strip())
-                    if '-' in line:
-                        # Extract price from the line
-                        price = float(line.split('P')[-1])
-                        inital_total_cost += price
         except FileNotFoundError:
             print("Error: draftreceipt.txt file not found.")
-        return components, inital_total_cost
+        return components
 
     def print_receipt(self):
         print("Official Receipt:")
@@ -68,6 +66,7 @@ class RecieptSys:
             print(component)
         print("=================")
         print("Thank you for shopping with World-of-Tomorrow!")
+        input('\n Press Enter to continue.')
 
 
 
