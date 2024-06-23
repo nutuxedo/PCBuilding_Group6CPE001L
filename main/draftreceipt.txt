@@ -1,8 +1,0 @@
-CPU: Intel Core i7 13700k - P20000
-CPU Cooler: None
-Motherboard: None
-Memory: None
-Storage: None
-Video Card: None
-Case: None
-Power Supply: None
