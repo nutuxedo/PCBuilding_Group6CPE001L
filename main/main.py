@@ -28,7 +28,7 @@ Please, select your choice:
     [5] About
 
 Type your choice and press Enter to select: ''')
-            if operation == '1':
+            if operation == '1': # Main component
                 print("You have selected choice 1")
                 time.sleep(1)
                 clear_screen()
@@ -40,12 +40,12 @@ Type your choice and press Enter to select: ''')
                 time.sleep(3)
                 PCPartsCreatorMenu()
 
-            elif operation == '2':
+            elif operation == '2': # Load saved builds
                 print("You have selected choice 2 - Work in progress")
                 time.sleep(1)
                 clear_screen()
 
-            elif operation == '4':
+            elif operation == '4': # Exit the program
                 exit_program = input('Are you sure you want to exit the program? (y/n) ')
                 if exit_program == "y":
                     clear_screen()
@@ -54,7 +54,7 @@ Type your choice and press Enter to select: ''')
                     time.sleep(1)
                     break
 
-            elif operation == '5':
+            elif operation == '5': # Author page
                 clear_screen()
                 print('\nWorld of Tomorrow')
                 print('v0.2.0dev')

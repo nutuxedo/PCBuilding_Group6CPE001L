@@ -15,7 +15,7 @@ class CheckoutSys:
     def __init__(self):
         while True:
             clear_screen()
-            payment_system = input('''Select a payment method.
+            payment_system = input('''\nSelect a payment method.
             
     [1] Cash-on-Delivery
     [2] Card
@@ -47,7 +47,8 @@ class RecieptSys:
         print("Printing....")
         time.sleep(5)
         self.components = self.load_components()
-        self.print_receipt()
+        self.print_reciept()
+        self.show_reciept()
 
     def load_components(self):
         components = []
@@ -59,14 +60,32 @@ class RecieptSys:
             print("Error: draftreceipt.txt file not found.")
         return components
 
-    def print_receipt(self):
-        print("Official Receipt:")
-        print("=================")
+    def print_reciept(self):
+        with open('World-of-Tomorrow_OfficialReceipt.txt', 'w+') as f:
+            f.write('World-of-Tomorrow Official Receipt:')
+            f.write('\n==================================\n')
+            for component in self.components:
+                f.write(component + '\n')
+            f.write('==================================')
+            f.write('\nInitial Total: ')
+            f.write('\nDelivery Fee: ')
+            f.write('\n==================================')
+            f.write('\nTotal Price: ')
+            f.close()
+
+    def show_reciept(self):
+        print("\nWorld-of-Tomorrow Official Receipt:")
+        print("==================================")
         for component in self.components:
             print(component)
-        print("=================")
-        print("Thank you for shopping with World-of-Tomorrow!")
-        input('\n Press Enter to continue.')
+        print("==================================")
+        print('Initial Total:')
+        print('Delivery Fee: ')
+        print('==================================')
+        print('Total Price: ')
+        print("\nThank you for shopping with World-of-Tomorrow!")
+        print("Your receipt is also saved as a text file, please check your file manager.")
+        input('\nPress Enter to continue.')
 
 
 

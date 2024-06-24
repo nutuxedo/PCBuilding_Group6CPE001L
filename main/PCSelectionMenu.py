@@ -1,6 +1,7 @@
 # imports
 import os
 import time
+import sys
 from ComponentsSelection import *
 from CheckoutSystem import *
 
@@ -165,18 +166,8 @@ Type your choice and press Enter to select: ''')
                         time.sleep(1)
                         PCPartsCreatorMenu.conversion(self)
                         CheckoutSys()
-                        while True:
-                            clear_screen()
-                            confirm = input('''Do you want to return to the main menu or exit the program?
-
-    [1] Return to main menu
-    [2] Exit program
-
-    Type your choice and press Enter to select: ''')
-                            if confirm.lower == "1":
-                                break
-                            elif confirm.lower == "2":
-                                return
+                        Continuation()
+                        return
 
                     else:
                         print("Invalid choice, please try again.")
@@ -222,6 +213,27 @@ Type your choice and press Enter to select: ''')
                 else:
                     f.write(f'{component_type}: None\n')
 
+
+class Continuation:
+    def __init__(self):
+        while True:
+            clear_screen()
+            confirm = input('''Do you want to return to the main menu or exit the program?
+
+    [1] Return to main menu
+    [2] Exit program
+
+    Type your choice and press Enter to select: ''')
+            if confirm.lower() == "1":
+                break
+            elif confirm.lower() == "2":
+                print("Thank you for using our service! Hope to see you again!")
+                print('Exiting service...')
+                time.sleep(1)
+                sys.exit()
+            else:
+                print("Invalid choice. Please try again.")
+                time.sleep(1)
 
 # Code initialization
 
