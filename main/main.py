@@ -1,4 +1,14 @@
 # v0.2.0dev
+"""
+            World-of-Tomorrow - Group 6
+            for Final Project in CPE001L
+
+    Members:
+    Vizconde, Rafael Jose G.
+    Perias, Anthony
+    Braga, Rovic Jay
+"""
+
 # imports
 import os
 from PCSelectionMenu import PCPartsCreatorMenu
@@ -22,13 +32,12 @@ Welcome to the World of Tomorrow!
 Please, select your choice:
     
     [1] Start building your PC!
-    [2] Saved builds
     
     [4] Exit program
     [5] About
 
 Type your choice and press Enter to select: ''')
-            if operation == '1': # Main component
+            if operation == '1': # Main component - this opens PCSelectionMenu.py
                 print("You have selected choice 1")
                 time.sleep(1)
                 clear_screen()
@@ -39,11 +48,6 @@ Type your choice and press Enter to select: ''')
                 print('Starting PC Selection menu program....')
                 time.sleep(3)
                 PCPartsCreatorMenu()
-
-            elif operation == '2': # Load saved builds
-                print("You have selected choice 2 - Work in progress")
-                time.sleep(1)
-                clear_screen()
 
             elif operation == '4': # Exit the program
                 exit_program = input('Are you sure you want to exit the program? (y/n) ')

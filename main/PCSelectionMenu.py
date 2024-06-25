@@ -15,6 +15,7 @@ def clear_screen():
 # the PC Parts creator system - main menu
 class PCPartsCreatorMenu:
     def __init__(self):
+        # this calls the variables for the components as None (null)
         self.selected_cpu = None
         self.selected_cooler = None
         self.selected_mobo = None
@@ -23,9 +24,11 @@ class PCPartsCreatorMenu:
         self.selected_gpu = None
         self.selected_case = None
         self.selected_psu = None
+        # runs the actual program
         self.run()
 
     def run(self):
+        # the main menu loop
         while True:
             clear_screen()
             print("\nWelcome to the World of Tomorrow's PC Selection menu")
@@ -85,7 +88,7 @@ Note: To remove a selected component, enter the desired number of the said compo
                 time.sleep(1)
 
             elif components == '10':
-                while True:  # Checkout system - modularize this to its own file (WIP @ CheckoutSystem.py)
+                while True:  # Cart section
                     clear_screen()
                     total_cost = 0
                     print('\nCheckout cart')
@@ -165,9 +168,12 @@ Type your choice and press Enter to select: ''')
                         print('Proceeding to checkout....')
                         time.sleep(1)
                         PCPartsCreatorMenu.conversion(self)
+                        # opens CheckoutSystem.py
                         CheckoutSys()
+                        # once finished it calls the Continuation class here
                         Continuation()
-                        return
+                        # if user inputs 1 the nested while loops will break and return to main.py
+                        break
 
                     else:
                         print("Invalid choice, please try again.")
@@ -195,6 +201,8 @@ Type your choice and press Enter to select: ''')
                 time.sleep(1)
 
     def conversion(self):
+        # this converts the variables for the selected components into a temporary text file
+        # that can be read at CheckoutSystem.py that'll turn it into a list variable
         conversionlist = [
             ("CPU", self.selected_cpu),
             ("CPU Cooler", self.selected_cooler),
@@ -215,6 +223,7 @@ Type your choice and press Enter to select: ''')
 
 
 class Continuation:
+    # this asks the user if they want to return to the main menu or close the program after checkout
     def __init__(self):
         while True:
             clear_screen()

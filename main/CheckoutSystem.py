@@ -1,4 +1,3 @@
-# Not yet integrated
 # imports
 import os
 import time
@@ -51,16 +50,17 @@ class RecieptSys:
         self.show_reciept()
 
     def load_components(self):
+        # loads the draftreceipt.txt from PCSelectionMenu.py
+        # it will give out an error if the file hasnt been created
+        # this will load the txt file and write it into a list variable 'components'
         components = []
-        try:
-            with open('draftreceipt.txt', 'r') as file:
-                for line in file:
+        with open('draftreceipt.txt', 'r') as file:
+            for line in file:
                     components.append(line.strip())
-        except FileNotFoundError:
-            print("Error: draftreceipt.txt file not found.")
-        return components
+            return components
 
     def print_reciept(self):
+        # this turns the components list variable into a text file and adding the total computation and the del. fee
         with open('World-of-Tomorrow_OfficialReceipt.txt', 'w+') as f:
             f.write('World-of-Tomorrow Official Receipt:')
             f.write('\n==================================\n')
@@ -74,6 +74,8 @@ class RecieptSys:
             f.close()
 
     def show_reciept(self):
+        # this shows the official receipt
+        # the program will return to PCSelectionMenu.py after the user presses Enter
         print("\nWorld-of-Tomorrow Official Receipt:")
         print("==================================")
         for component in self.components:
