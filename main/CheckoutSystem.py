@@ -45,6 +45,12 @@ class RecieptSys:
         print("Printing....")
         time.sleep(5)
         self.components = self.load_components()
+        self.initial_total = 0
+        self.vat_total = 0
+        # random delivery fee between P150 and P500
+        # rounds it after two decimal places
+        self.delivery_fee = round(random.uniform(150, 500), 2)
+        self.compute_totals()
         self.print_reciept()
         self.show_reciept()
 
@@ -55,36 +61,51 @@ class RecieptSys:
         components = []
         with open('draftreceipt.txt', 'r') as file:
             for line in file:
-                    components.append(line.strip())
-            return components
+                components.append(line.strip())
+        return components
+
+    def compute_totals(self):
+        for component in self.components:
+            # extracts the price by splitting "Component1: ComponentName - Pvalue"
+            # to "Component1: ComponentName" "value"
+            # removes the '- P"
+            if '- P' in component:
+                _, price_str = component.split(' - P')
+                price = float(price_str)
+                self.initial_total += price
+                self.vat_total += price * 0.12
 
     def print_reciept(self):
         # this turns the components list variable into a text file and adding the total computation and the del. fee
+        total_price = self.initial_total + self.vat_total + self.delivery_fee
         with open('World-of-Tomorrow_OfficialReceipt.txt', 'w+') as f:
             f.write('World-of-Tomorrow Official Receipt:')
             f.write('\n==================================\n')
             for component in self.components:
                 f.write(component + '\n')
             f.write('==================================')
-            f.write('\nInitial Total: ')
-            f.write('\nDelivery Fee: ')
-            f.write('\n12% VAT Total: ')
+            f.write(f'\nInitial Total: P{self.initial_total:.0f}')
+            f.write(f'\nDelivery Fee: P{self.delivery_fee:.0f}')
+            f.write(f'\n12% VAT Total: P{self.vat_total:.0f}')
             f.write('\n==================================')
-            f.write('\nTotal Price: ')
+            f.write(f'\nTotal Price: P{total_price:.0f}')
+            f.write('\nThank you for shopping with World-of-Tomorrow!')
             f.close()
 
     def show_reciept(self):
         # this shows the official receipt
         # the program will return to PCSelectionMenu.py after the user presses Enter
+        total_price = self.initial_total + self.vat_total + self.delivery_fee
         print("\nWorld-of-Tomorrow Official Receipt:")
         print("==================================")
         for component in self.components:
             print(component)
         print("==================================")
-        print('Initial Total:')
-        print('Delivery Fee: ')
-        print('==================================')
-        print('Total Price: ')
+        print(f'Initial Total: P{self.initial_total:.0f}')
+        print(f'Delivery Fee: P{self.delivery_fee:.0f}')
+        print(f'12% VAT Total: P{self.vat_total:.0f}')
+        print("==================================")
+        print(f'Total Price: P{total_price:.0f}')
         print("\nThank you for shopping with World-of-Tomorrow!")
         print("Your receipt is also saved as a text file, please check your file manager.")
         input('\nPress Enter to continue.')
