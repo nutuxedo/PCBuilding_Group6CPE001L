@@ -3,12 +3,7 @@
 # imports
 import os
 import time
-
-
-# Global Functions
-def clear_screen():
-    os.system('cls' if os.name == 'nt' else 'clear')
-
+from main import clear_screen
 
 # Components
 class CPUSel:

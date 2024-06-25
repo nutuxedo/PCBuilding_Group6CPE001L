@@ -18,6 +18,8 @@ import time
 # Global functions
 
 def clear_screen():
+    # this clears the screen once called
+    # 'cls' is for Windows systems, 'clear' is for Linux/macOS
     os.system('cls' if os.name == 'nt' else 'clear')
 
 

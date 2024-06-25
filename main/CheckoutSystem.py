@@ -3,12 +3,7 @@ import os
 import time
 import random
 from PCSelectionMenu import *
-
-
-# global functions
-def clear_screen():
-    os.system('cls' if os.name == 'nt' else 'clear')
-
+from main import clear_screen
 
 class CheckoutSys:
     def __init__(self):

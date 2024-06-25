@@ -4,12 +4,11 @@ import time
 import sys
 from ComponentsSelection import *
 from CheckoutSystem import *
-
+from main import clear_screen
 
 # Global functions
 
-def clear_screen():
-    os.system('cls' if os.name == 'nt' else 'clear')
+
 
 
 # the PC Parts creator system - main menu
