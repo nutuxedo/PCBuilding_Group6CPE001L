@@ -19,7 +19,7 @@ class CPUSel:
     # When all functionalities done - REPEAT FOR THE OTHER COMPONENTS (done)
     # OPTIMIZE THIS WHOLE SECTION - TOO LONG
     def __init__(self):
-
+        self.selected_cpu = None
         self.cpu_options = {
             "1": {'name': "Intel Core i7 13700k", 'price': 20000},
             "2": {'name': "Intel Core i5 13600k", 'price': 15000},
