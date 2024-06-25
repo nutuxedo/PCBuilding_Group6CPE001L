@@ -3,7 +3,11 @@
 # imports
 import os
 import time
-from main import clear_screen
+
+def clear_screen():
+    # this clears the screen once called
+    # 'cls' is for Windows systems, 'clear' is for Linux/macOS
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 # Components
 class CPUSel:
@@ -15,7 +19,7 @@ class CPUSel:
     # When all functionalities done - REPEAT FOR THE OTHER COMPONENTS (done)
     # OPTIMIZE THIS WHOLE SECTION - TOO LONG
     def __init__(self):
-        self.selected_cpu = None
+
         self.cpu_options = {
             "1": {'name': "Intel Core i7 13700k", 'price': 20000},
             "2": {'name': "Intel Core i5 13600k", 'price': 15000},
@@ -112,18 +116,6 @@ class CPUCoolerSel:
                     print('Returning to components list....')
                     time.sleep(1)
                     break
-            elif select_cooler == "9":
-                if self.selected_cooler is None:
-                    print("\nYou have not selected a CPU Cooler!")
-                    time.sleep(1)
-                    continue
-                else:
-                    remove_confirmation = input("\nWould you like to remove the selected CPU Cooler? \nType y or n and press Enter. (Y/n) ")
-                    if remove_confirmation.lower() == "n":
-                        self.selected_cooler = None
-                        print('CPU removed.')
-                        time.sleep(1)
-                        break
             elif select_cooler == "10":
                 print("Cancelling operation...")
                 time.sleep(1)

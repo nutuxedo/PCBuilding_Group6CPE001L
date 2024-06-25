@@ -4,10 +4,13 @@ import time
 import sys
 from ComponentsSelection import *
 from CheckoutSystem import *
-from main import clear_screen
+
 
 # Global functions
-
+def clear_screen():
+    # this clears the screen once called
+    # 'cls' is for Windows systems, 'clear' is for Linux/macOS
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 

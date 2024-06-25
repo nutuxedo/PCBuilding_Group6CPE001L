@@ -3,7 +3,11 @@ import os
 import time
 import random
 from PCSelectionMenu import *
-from main import clear_screen
+
+def clear_screen():
+    # this clears the screen once called
+    # 'cls' is for Windows systems, 'clear' is for Linux/macOS
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 class CheckoutSys:
     def __init__(self):
@@ -64,6 +68,7 @@ class RecieptSys:
             f.write('==================================')
             f.write('\nInitial Total: ')
             f.write('\nDelivery Fee: ')
+            f.write('\n12% VAT Total: ')
             f.write('\n==================================')
             f.write('\nTotal Price: ')
             f.close()

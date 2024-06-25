@@ -1,7 +1,7 @@
 # v0.2.0dev
 """
-            World-of-Tomorrow - Group 6
-            for Final Project in CPE001L
+    World-of-Tomorrow - Group 6
+    for Final Project in CPE001L
 
     Members:
     Vizconde, Rafael Jose G.
