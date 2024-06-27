@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value="PCBuildingGroup6CPE001l"/>
+        <attribute name="authors" value="rj"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-06-27 06:56:46 PM"/>
+        <attribute name="created" value="cmo7UkotQVNQSVJFNS1FT1M7MjAyNC0wNi0yNzswMzoyMjowMCBQTTsyNDc2"/>
+        <attribute name="edited" value="cmo7UkotQVNQSVJFNS1FT1M7MjAyNC0wNi0yNzswNjo1Njo0NiBQTTsyMDsyNjUz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="ConfirmationChoice" type="String" array="False" size=""/>
+            <declare name="MainMenu" type="Boolean" array="False" size=""/>
+            <assign variable="MainMenu" expression="True"/>
+            <while expression="MainMenu">
+                <output expression="&quot;Welcome to World-of-Tomorrow!&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;Please select a choice:&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;[1] Start creating your PC&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;[4] Exit program&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;[5] About&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;Type a number to select your choice and press Enter.&quot;" newline="True"/>
+                <input variable="ConfirmationChoice"/>
+                <if expression="ConfirmationChoice = &quot;1&quot;">
+                    <then>
+                        <call expression="PCSelectionMenu"/>
+                    </then>
+                    <else>
+                        <if expression="ConfirmationChoice = &quot;4&quot;">
+                            <then>
+                                <declare name="ExitMainMenu" type="Boolean" array="False" size=""/>
+                                <assign variable="ExitMainMenu" expression="True"/>
+                                <while expression="ExitMainMenu">
+                                    <declare name="ExitConfirmation" type="String" array="False" size=""/>
+                                    <output expression="&quot;Do you want to exit the program? Type y or n to confirm.&quot;" newline="True"/>
+                                    <input variable="ExitConfirmation"/>
+                                    <if expression="ExitConfirmation = &quot;y&quot;">
+                                        <then>
+                                            <assign variable="ExitMainMenu" expression="False"/>
+                                            <assign variable="MainMenu" expression="False"/>
+                                        </then>
+                                        <else>
+                                            <assign variable="ExitMainMenu" expression="False"/>
+                                        </else>
+                                    </if>
+                                </while>
+                            </then>
+                            <else>
+                                <if expression="ConfirmationChoice = &quot;5&quot;">
+                                    <then>
+                                        <output expression="&quot;World of Tomorrow&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;v1.0.0&quot; &amp; ToChar(13)&amp;&#13;&#10;&#13;&#10;&quot;Service created by these authors:&quot; &amp; ToChar(13)&amp;&#13;&#10;&#13;&#10;&quot;Vizconde, Rafael Jose G.&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;Perias, Anthony&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;Braga, Rovic Jay&quot; &amp; ToChar(13)&amp;&#13;&#10;&#13;&#10;&#13;&#10;&quot;Thank you for using this service!&quot;" newline="True"/>
+                                    </then>
+                                    <else>
+                                        <output expression="&quot;Invalid output&quot;" newline="True"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </while>
+            <output expression="&quot;Thank you for using our service!&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="CPUComponent" type="String" variable="FinalCPUSel">
+        <parameters/>
+        <body>
+            <declare name="CPUSel, FinalCPUSel, CPU1, CPU2, CPU3, CPU4" type="String" array="False" size=""/>
+            <declare name="price1, price2, price3, price4" type="Integer" array="False" size=""/>
+            <declare name="CPUChoices" type="Boolean" array="False" size=""/>
+            <assign variable="CPUChoices" expression="True"/>
+            <assign variable="CPUSel" expression="&quot;Intel&quot;"/>
+            <assign variable="CPU1" expression="&quot;Intel Core i7&quot;"/>
+            <assign variable="FinalCPUSel" expression="&quot;Not Selected&quot;"/>
+            <while expression="CPUChoices">
+                <assign variable="CPU1" expression="&quot;Intel Core i7&quot;"/>
+                <assign variable="CPU2" expression="&quot;Intel Core i5&quot;"/>
+                <assign variable="CPU3" expression="&quot;AMD Ryzen 7&quot;"/>
+                <assign variable="CPU4" expression="&quot;AMD Ryzen 5&quot;"/>
+                <assign variable="price1" expression="10000"/>
+                <assign variable="price2" expression="5000"/>
+                <assign variable="price3" expression="15000"/>
+                <assign variable="price4" expression="8000"/>
+                <declare name="selection" type="String" array="False" size=""/>
+                <output expression="&quot;Select your CPUs:&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;[1] &quot; &amp; CPU1 &amp;&quot; P&quot;&amp; price1 &amp; ToChar(13)&amp;&#13;&#10;&quot;[2] &quot; &amp; CPU2 &amp;&quot; P&quot;&amp; price2 &amp; ToChar(13)&amp;&#13;&#10;&quot;[3] &quot; &amp; CPU3 &amp;&quot; P&quot;&amp; price3 &amp; ToChar(13)&amp;&#13;&#10;&quot;[4] &quot; &amp; CPU4 &amp;&quot; P&quot;&amp; price4 &amp; ToChar(13)&amp;&#13;&#10;&quot;Type a number and press Enter to select.&quot;" newline="True"/>
+                <input variable="selection"/>
+            </while>
+        </body>
+    </function>
+    <function name="PCSelectionMenu" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="CPU, Cooler, Mobo, Case, PSU, GPU, RAM, ROM" type="String" array="False" size=""/>
+            <declare name="PCSelectionMenu" type="Boolean" array="False" size=""/>
+            <assign variable="PCSelectionMenu" expression="True"/>
+            <output expression="&quot;This is PCSelectionMenu function working&quot;" newline="True"/>
+            <while expression="PCSelectionMenu">
+                <declare name="PCSelectionChoice" type="String" array="False" size=""/>
+                <output expression="&quot;Select a component to add:&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;[1] CPU&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;[2] Cooler&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;[3] Motherboard&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;[4] Storage&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;[5] Memory&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;[6] Graphics Card&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;[7] Case&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;[8] Power Supply&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;[9] Cart&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;[10] Return to main menu&quot;" newline="True"/>
+                <input variable="PCSelectionChoice"/>
+                <comment text="Not included the rest of the components for redundancy"/>
+                <if expression="PCSelectionChoice = &quot;1&quot;">
+                    <then>
+                        <call expression="CPUComponent"/>
+                        <assign variable="CPU" expression="CPUComponent()"/>
+                        <output expression="CPU" newline="True"/>
+                    </then>
+                    <else>
+                        <if expression="PCSelectionChoice = &quot;2&quot;">
+                            <then/>
+                            <else>
+                                <if expression="PCSelectionChoice = &quot;10&quot;">
+                                    <then>
+                                        <declare name="ExitSelectionMenu" type="Boolean" array="False" size=""/>
+                                        <assign variable="ExitSelectionMenu" expression="True"/>
+                                        <while expression="ExitSelectionMenu">
+                                            <declare name="ExitConfirmation" type="String" array="False" size=""/>
+                                            <output expression="&quot;Do you want to return to the main menu? Your cart will be deleted! Type y or n to confirm.&quot;" newline="True"/>
+                                            <input variable="ExitConfirmation"/>
+                                            <if expression="ExitConfirmation = &quot;y&quot;">
+                                                <then>
+                                                    <assign variable="ExitSelectionMenu" expression="False"/>
+                                                    <assign variable="PCSelectionMenu" expression="False"/>
+                                                </then>
+                                                <else>
+                                                    <assign variable="ExitSelectionMenu" expression="False"/>
+                                                </else>
+                                            </if>
+                                        </while>
+                                    </then>
+                                    <else>
+                                        <output expression="&quot;Wrong input&quot;" newline="True"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
