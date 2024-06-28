@@ -4,9 +4,10 @@
         <attribute name="name" value="PCBuildingGroup6CPE001l"/>
         <attribute name="authors" value="rj"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-06-28 02:36:17 PM"/>
+        <attribute name="saved" value="2024-06-28 04:10:27 pm"/>
         <attribute name="created" value="cmo7UkotQVNQSVJFNS1FT1M7MjAyNC0wNi0yNzswMzoyMjowMCBQTTsyNDc2"/>
         <attribute name="edited" value="cmo7UkotQVNQSVJFNS1FT1M7MjAyNC0wNi0yODswMjozNjoxNyBQTTsyMTsyNjQ3"/>
+        <attribute name="edited" value="Uko7UkotQUNFUjsyMDI0LTA2LTI4OzA0OjEwOjI3IHBtOzM7MjA5Ng=="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -59,10 +60,13 @@
         </body>
     </function>
     <function name="CPUComponent" type="None" variable="FinalCPUSel">
-        <parameters/>
+        <parameters>
+            <parameter name="FinalCPUSel" type="String" array="False"/>
+            <parameter name="FinalPriceCPU" type="Integer" array="False"/>
+        </parameters>
         <body>
             <declare name="CPUSel, FinalCPUSel, CPU1, CPU2, CPU3, CPU4" type="String" array="False" size=""/>
-            <declare name="price1, price2, price3, price4" type="Integer" array="False" size=""/>
+            <declare name="price1, price2, price3, price4, PriceCPU, FinalPriceCPU" type="Integer" array="False" size=""/>
             <declare name="CPUChoices" type="Boolean" array="False" size=""/>
             <assign variable="CPUChoices" expression="True"/>
             <assign variable="CPUSel" expression="&quot;Intel&quot;"/>
@@ -77,9 +81,49 @@
                 <output expression="&quot;Select your CPUs:&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;[1] &quot; &amp; CPU1 &amp;&quot; P&quot;&amp; price1 &amp; ToChar(13)&amp;&#13;&#10;&quot;[2] &quot; &amp; CPU2 &amp;&quot; P&quot;&amp; price2 &amp; ToChar(13)&amp;&#13;&#10;&quot;Type a number and press Enter to select.&quot;" newline="True"/>
                 <input variable="selection"/>
                 <if expression="selection = &quot;1&quot;">
-                    <then/>
-                    <else/>
+                    <then>
+                        <assign variable="CPUSel" expression="CPU1"/>
+                        <assign variable="PriceCPU" expression="price1"/>
+                    </then>
+                    <else>
+                        <if expression="selection = &quot;2&quot;">
+                            <then>
+                                <assign variable="CPUSel" expression="CPU2"/>
+                                <assign variable="PriceCPU" expression="price2"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;Invalid output&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </else>
                 </if>
+                <declare name="finalconfirmation" type="Boolean" array="False" size=""/>
+                <assign variable="finalconfirmation" expression="True"/>
+                <while expression="finalconfirmation">
+                    <output expression="&quot;You have selected &quot; &amp; CPUSel &amp; &quot; for P&quot; &amp; price1 &amp; ToChar(13)&amp; &quot;Would you like to confirm? type y or n&quot;" newline="True"/>
+                    <declare name="choice" type="String" array="False" size=""/>
+                    <input variable="choice"/>
+                    <if expression="choice = &quot;y&quot;">
+                        <then>
+                            <assign variable="FinalPriceCPU" expression="0"/>
+                            <assign variable="FinalCPUSel" expression="CPUSel"/>
+                            <assign variable="FinalPriceCPU" expression="PriceCPU"/>
+                            <assign variable="finalconfirmation" expression="False"/>
+                        </then>
+                        <else>
+                            <if expression="choice = &quot;n&quot;">
+                                <then>
+                                    <assign variable="finalconfirmation" expression="False"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;Invalid output&quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                    <output expression="&quot;You have confirmed &quot; &amp; FinalCPUSel &amp; &quot;for P&quot; &amp; FinalPriceCPU" newline="True"/>
+                </while>
+                <assign variable="CPUChoices" expression="False"/>
             </while>
         </body>
     </function>
@@ -97,9 +141,10 @@
                 <comment text="Not included the rest of the components for redundancy"/>
                 <if expression="PCSelectionChoice = &quot;1&quot;">
                     <then>
-                        <call expression="CPUComponent"/>
-                        <assign variable="CPU" expression="CPUComponent()"/>
-                        <output expression="CPU" newline="True"/>
+                        <declare name="FinalCPUSel" type="String" array="False" size=""/>
+                        <declare name="FinalPriceCPU" type="Integer" array="False" size=""/>
+                        <call expression="CPUComponent()"/>
+                        <output expression="FinalCPUSel &amp; FinalPriceCPU" newline="True"/>
                     </then>
                     <else>
                         <if expression="PCSelectionChoice = &quot;2&quot;">
