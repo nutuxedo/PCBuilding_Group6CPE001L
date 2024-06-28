@@ -4,9 +4,9 @@
         <attribute name="name" value="PCBuildingGroup6CPE001l"/>
         <attribute name="authors" value="rj"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-06-27 06:56:46 PM"/>
+        <attribute name="saved" value="2024-06-28 02:36:17 PM"/>
         <attribute name="created" value="cmo7UkotQVNQSVJFNS1FT1M7MjAyNC0wNi0yNzswMzoyMjowMCBQTTsyNDc2"/>
-        <attribute name="edited" value="cmo7UkotQVNQSVJFNS1FT1M7MjAyNC0wNi0yNzswNjo1Njo0NiBQTTsyMDsyNjUz"/>
+        <attribute name="edited" value="cmo7UkotQVNQSVJFNS1FT1M7MjAyNC0wNi0yODswMjozNjoxNyBQTTsyMTsyNjQ3"/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -58,7 +58,7 @@
             <output expression="&quot;Thank you for using our service!&quot;" newline="True"/>
         </body>
     </function>
-    <function name="CPUComponent" type="String" variable="FinalCPUSel">
+    <function name="CPUComponent" type="None" variable="FinalCPUSel">
         <parameters/>
         <body>
             <declare name="CPUSel, FinalCPUSel, CPU1, CPU2, CPU3, CPU4" type="String" array="False" size=""/>
@@ -69,17 +69,17 @@
             <assign variable="CPU1" expression="&quot;Intel Core i7&quot;"/>
             <assign variable="FinalCPUSel" expression="&quot;Not Selected&quot;"/>
             <while expression="CPUChoices">
-                <assign variable="CPU1" expression="&quot;Intel Core i7&quot;"/>
-                <assign variable="CPU2" expression="&quot;Intel Core i5&quot;"/>
-                <assign variable="CPU3" expression="&quot;AMD Ryzen 7&quot;"/>
-                <assign variable="CPU4" expression="&quot;AMD Ryzen 5&quot;"/>
+                <assign variable="CPU1" expression="&quot;Intel Core&quot;"/>
+                <assign variable="CPU2" expression="&quot;AMD Ryzen&quot;"/>
                 <assign variable="price1" expression="10000"/>
                 <assign variable="price2" expression="5000"/>
-                <assign variable="price3" expression="15000"/>
-                <assign variable="price4" expression="8000"/>
                 <declare name="selection" type="String" array="False" size=""/>
-                <output expression="&quot;Select your CPUs:&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;[1] &quot; &amp; CPU1 &amp;&quot; P&quot;&amp; price1 &amp; ToChar(13)&amp;&#13;&#10;&quot;[2] &quot; &amp; CPU2 &amp;&quot; P&quot;&amp; price2 &amp; ToChar(13)&amp;&#13;&#10;&quot;[3] &quot; &amp; CPU3 &amp;&quot; P&quot;&amp; price3 &amp; ToChar(13)&amp;&#13;&#10;&quot;[4] &quot; &amp; CPU4 &amp;&quot; P&quot;&amp; price4 &amp; ToChar(13)&amp;&#13;&#10;&quot;Type a number and press Enter to select.&quot;" newline="True"/>
+                <output expression="&quot;Select your CPUs:&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;[1] &quot; &amp; CPU1 &amp;&quot; P&quot;&amp; price1 &amp; ToChar(13)&amp;&#13;&#10;&quot;[2] &quot; &amp; CPU2 &amp;&quot; P&quot;&amp; price2 &amp; ToChar(13)&amp;&#13;&#10;&quot;Type a number and press Enter to select.&quot;" newline="True"/>
                 <input variable="selection"/>
+                <if expression="selection = &quot;1&quot;">
+                    <then/>
+                    <else/>
+                </if>
             </while>
         </body>
     </function>
