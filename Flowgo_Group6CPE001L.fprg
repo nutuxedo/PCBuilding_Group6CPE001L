@@ -4,9 +4,10 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="rj"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-07-01 02:46:48 PM"/>
+        <attribute name="saved" value="2024-07-01 04:11:16 pm"/>
         <attribute name="created" value="cmo7UkotQVNQSVJFNS1FT1M7MjAyNC0wNy0wMTswMjozMjozOSBQTTsyNDgx"/>
         <attribute name="edited" value="cmo7UkotQVNQSVJFNS1FT1M7MjAyNC0wNy0wMTswMjo0Njo0OCBQTTs3OzI2MDA="/>
+        <attribute name="edited" value="Uko7UkotQUNFUjsyMDI0LTA3LTAxOzA0OjExOjE2IHBtOzI5OzIxNDM="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -19,26 +20,179 @@
                 <input variable="mainmenu"/>
                 <if expression="mainmenu = 1">
                     <then>
-                        <declare name="componentmenu" type="Boolean" array="False" size=""/>
+                        <declare name="componentmenu, cartmenu, gpumenu, cpumenu, rommenu, rammenu" type="Boolean" array="False" size=""/>
                         <assign variable="componentmenu" expression="True"/>
+                        <declare name="CPUPrice, MemPrice, GPUPrice, ROMPrice, RAMPrice, cpuchoice, memchoice, gpuchoice, romchoice" type="Integer" array="False" size=""/>
+                        <declare name="CPU, GPU, ROM, RAM" type="String" array="False" size=""/>
+                        <declare name="cmenuchoice" type="Integer" array="False" size=""/>
+                        <assign variable="CPU" expression="&quot;None&quot;"/>
+                        <assign variable="GPU" expression="&quot;None&quot;"/>
+                        <assign variable="ROM" expression="&quot;None&quot;"/>
+                        <assign variable="RAM" expression="&quot;None&quot;"/>
+                        <assign variable="CPUPrice" expression="0"/>
+                        <assign variable="GPUPrice" expression="0"/>
+                        <assign variable="ROMPrice" expression="0"/>
+                        <assign variable="RAMPrice" expression="0"/>
                         <while expression="componentmenu">
-                            <declare name="cmenuchoice" type="Integer" array="False" size=""/>
                             <output expression="&quot;Select component/s&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[1] CPU&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[2] Memory&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[3] Graphics&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[4] Storage&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[5] Cart&quot;" newline="True"/>
                             <input variable="cmenuchoice"/>
                             <if expression="cmenuchoice = 1">
-                                <then/>
+                                <then>
+                                    <assign variable="cpumenu" expression="True"/>
+                                    <while expression="cpumenu">
+                                        <output expression="&quot;Select CPU&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[1] Intel Core - P5000&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[2] AMD Ryzen - P6000&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[3] Back&quot;" newline="True"/>
+                                        <input variable="cpuchoice"/>
+                                        <if expression="cpuchoice = 1">
+                                            <then>
+                                                <assign variable="CPU" expression="&quot;Intel Core&quot;"/>
+                                                <assign variable="CPUPrice" expression="5000"/>
+                                                <output expression="&quot;You picked Intel Core for P5000.&quot;" newline="True"/>
+                                                <assign variable="cpumenu" expression="False"/>
+                                            </then>
+                                            <else>
+                                                <if expression="cpuchoice = 2">
+                                                    <then>
+                                                        <assign variable="CPU" expression="&quot;AMD Ryzen&quot;"/>
+                                                        <assign variable="CPUPrice" expression="6000"/>
+                                                        <output expression="&quot;You picked AMD Ryzen for P6000.&quot;" newline="True"/>
+                                                    </then>
+                                                    <else>
+                                                        <output expression="&quot;Wrong choice!&quot;" newline="True"/>
+                                                    </else>
+                                                </if>
+                                                <assign variable="cpumenu" expression="False"/>
+                                            </else>
+                                        </if>
+                                    </while>
+                                </then>
                                 <else>
                                     <if expression="cmenuchoice = 2">
-                                        <then/>
+                                        <then>
+                                            <assign variable="rammenu" expression="True"/>
+                                            <while expression="rammenu">
+                                                <output expression="&quot;Select Memory&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[1] 8GB - P3000&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[2] 16GB - P5000&quot;" newline="True"/>
+                                                <input variable="memchoice"/>
+                                                <if expression="memchoice = 1">
+                                                    <then>
+                                                        <assign variable="RAM" expression="&quot;8GB&quot;"/>
+                                                        <assign variable="RAMPrice" expression="5000"/>
+                                                        <output expression="&quot;You have selected 8GB Memory.&quot;" newline="True"/>
+                                                        <assign variable="rammenu" expression="False"/>
+                                                    </then>
+                                                    <else>
+                                                        <if expression="memchoice = 2">
+                                                            <then>
+                                                                <assign variable="RAM" expression="&quot;16GB&quot;"/>
+                                                                <assign variable="RAMPrice" expression="5000"/>
+                                                                <output expression="&quot;You have selected 16GB Memory.&quot;" newline="True"/>
+                                                                <assign variable="rammenu" expression="False"/>
+                                                            </then>
+                                                            <else>
+                                                                <output expression="&quot;Wrong choice!&quot;" newline="True"/>
+                                                            </else>
+                                                        </if>
+                                                    </else>
+                                                </if>
+                                            </while>
+                                        </then>
                                         <else>
                                             <if expression="cmenuchoice = 3">
-                                                <then/>
+                                                <then>
+                                                    <assign variable="gpumenu" expression="True"/>
+                                                    <while expression="gpumenu">
+                                                        <output expression="&quot;Select GPU&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[1] Nvidia RTX - P30000&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[2] AMD RX - P15000&quot;" newline="True"/>
+                                                        <input variable="gpuchoice"/>
+                                                        <if expression="gpuchoice = 1">
+                                                            <then>
+                                                                <assign variable="GPU" expression="&quot;8GB&quot;"/>
+                                                                <assign variable="GPUPrice" expression="5000"/>
+                                                                <output expression="&quot;You have selected Nvidia RTX.&quot;" newline="True"/>
+                                                                <assign variable="gpumenu" expression="False"/>
+                                                            </then>
+                                                            <else>
+                                                                <if expression="gpuchoice = 2">
+                                                                    <then>
+                                                                        <assign variable="GPU" expression="&quot;16GB&quot;"/>
+                                                                        <assign variable="GPUPrice" expression="5000"/>
+                                                                        <output expression="&quot;You have selected AMD RX.&quot;" newline="True"/>
+                                                                        <assign variable="gpumenu" expression="False"/>
+                                                                    </then>
+                                                                    <else>
+                                                                        <output expression="&quot;Wrong choice!&quot;" newline="True"/>
+                                                                    </else>
+                                                                </if>
+                                                            </else>
+                                                        </if>
+                                                    </while>
+                                                </then>
                                                 <else>
                                                     <if expression="cmenuchoice = 4">
-                                                        <then/>
+                                                        <then>
+                                                            <assign variable="rommenu" expression="True"/>
+                                                            <while expression="rommenu">
+                                                                <output expression="&quot;Select Storage&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[1] 512GB SSD - P5000&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[2] 1TB SSD - P8000&quot;" newline="True"/>
+                                                                <input variable="romchoice"/>
+                                                                <if expression="romchoice = 1">
+                                                                    <then>
+                                                                        <assign variable="ROM" expression="&quot;512GB SSD&quot;"/>
+                                                                        <assign variable="ROMPrice" expression="5000"/>
+                                                                        <output expression="&quot;You have selected 512GB SSD.&quot;" newline="True"/>
+                                                                        <assign variable="rommenu" expression="False"/>
+                                                                    </then>
+                                                                    <else>
+                                                                        <if expression="romchoice = 2">
+                                                                            <then>
+                                                                                <assign variable="ROM" expression="&quot;1TB SSD&quot;"/>
+                                                                                <assign variable="ROMPrice" expression="8000"/>
+                                                                                <output expression="&quot;You have selected 1TB SSD.&quot;" newline="True"/>
+                                                                                <assign variable="rommenu" expression="False"/>
+                                                                            </then>
+                                                                            <else>
+                                                                                <output expression="&quot;Wrong choice!&quot;" newline="True"/>
+                                                                            </else>
+                                                                        </if>
+                                                                    </else>
+                                                                </if>
+                                                            </while>
+                                                        </then>
                                                         <else>
                                                             <if expression="cmenuchoice = 5">
-                                                                <then/>
+                                                                <then>
+                                                                    <assign variable="cartmenu" expression="True"/>
+                                                                    <while expression="cartmenu">
+                                                                        <declare name="cartchoice" type="Integer" array="False" size=""/>
+                                                                        <output expression="&quot;Cart&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;CPU: &quot; &amp; CPU &amp; &quot; - P&quot; &amp; CPUPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;GPU: &quot; &amp; GPU &amp; &quot; - P&quot; &amp; GPUPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;ROM: &quot; &amp; ROM &amp; &quot; - P&quot; &amp; ROMPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;RAM: &quot; &amp; RAM &amp; &quot; - P&quot; &amp; RAMPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;[1] Proceed to checkout&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[2] Clear all&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[3] Back&quot;" newline="True"/>
+                                                                        <input variable="cartchoice"/>
+                                                                        <if expression="cartchoice = 1">
+                                                                            <then/>
+                                                                            <else>
+                                                                                <if expression="cartchoice = 2">
+                                                                                    <then>
+                                                                                        <assign variable="CPU" expression="&quot;None&quot;"/>
+                                                                                        <assign variable="GPU" expression="&quot;None&quot;"/>
+                                                                                        <assign variable="ROM" expression="&quot;None&quot;"/>
+                                                                                        <assign variable="RAM" expression="&quot;None&quot;"/>
+                                                                                        <assign variable="CPUPrice" expression="0"/>
+                                                                                        <assign variable="GPUPrice" expression="0"/>
+                                                                                        <assign variable="ROMPrice" expression="0"/>
+                                                                                        <assign variable="RAMPrice" expression="0"/>
+                                                                                        <output expression="&quot;Removed all components from cart&quot;" newline="True"/>
+                                                                                    </then>
+                                                                                    <else>
+                                                                                        <if expression="cartchoice = 3">
+                                                                                            <then>
+                                                                                                <assign variable="cartmenu" expression="False"/>
+                                                                                            </then>
+                                                                                            <else>
+                                                                                                <output expression="&quot;Wrong choice&quot;" newline="True"/>
+                                                                                            </else>
+                                                                                        </if>
+                                                                                    </else>
+                                                                                </if>
+                                                                            </else>
+                                                                        </if>
+                                                                    </while>
+                                                                </then>
                                                                 <else>
                                                                     <output expression="&quot;Invalid choice&quot;" newline="True"/>
                                                                 </else>
