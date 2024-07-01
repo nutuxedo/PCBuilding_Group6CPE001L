@@ -4,10 +4,10 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="rj"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-07-01 04:11:16 pm"/>
+        <attribute name="saved" value="2024-07-01 05:21:00 pm"/>
         <attribute name="created" value="cmo7UkotQVNQSVJFNS1FT1M7MjAyNC0wNy0wMTswMjozMjozOSBQTTsyNDgx"/>
         <attribute name="edited" value="cmo7UkotQVNQSVJFNS1FT1M7MjAyNC0wNy0wMTswMjo0Njo0OCBQTTs3OzI2MDA="/>
-        <attribute name="edited" value="Uko7UkotQUNFUjsyMDI0LTA3LTAxOzA0OjExOjE2IHBtOzI5OzIxNDM="/>
+        <attribute name="edited" value="Uko7UkotQUNFUjsyMDI0LTA3LTAxOzA1OjIxOjAwIHBtOzQwOzIxMzE="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -22,7 +22,7 @@
                     <then>
                         <declare name="componentmenu, cartmenu, gpumenu, cpumenu, rommenu, rammenu" type="Boolean" array="False" size=""/>
                         <assign variable="componentmenu" expression="True"/>
-                        <declare name="CPUPrice, MemPrice, GPUPrice, ROMPrice, RAMPrice, cpuchoice, memchoice, gpuchoice, romchoice" type="Integer" array="False" size=""/>
+                        <declare name="CPUPrice, MemPrice, GPUPrice, ROMPrice, RAMPrice, cpuchoice, memchoice, gpuchoice, romchoice, totalprice" type="Integer" array="False" size=""/>
                         <declare name="CPU, GPU, ROM, RAM" type="String" array="False" size=""/>
                         <declare name="cmenuchoice" type="Integer" array="False" size=""/>
                         <assign variable="CPU" expression="&quot;None&quot;"/>
@@ -33,6 +33,7 @@
                         <assign variable="GPUPrice" expression="0"/>
                         <assign variable="ROMPrice" expression="0"/>
                         <assign variable="RAMPrice" expression="0"/>
+                        <assign variable="totalprice" expression="0"/>
                         <while expression="componentmenu">
                             <output expression="&quot;Select component/s&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[1] CPU&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[2] Memory&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[3] Graphics&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[4] Storage&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[5] Cart&quot;" newline="True"/>
                             <input variable="cmenuchoice"/>
@@ -161,10 +162,58 @@
                                                                     <assign variable="cartmenu" expression="True"/>
                                                                     <while expression="cartmenu">
                                                                         <declare name="cartchoice" type="Integer" array="False" size=""/>
-                                                                        <output expression="&quot;Cart&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;CPU: &quot; &amp; CPU &amp; &quot; - P&quot; &amp; CPUPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;GPU: &quot; &amp; GPU &amp; &quot; - P&quot; &amp; GPUPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;ROM: &quot; &amp; ROM &amp; &quot; - P&quot; &amp; ROMPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;RAM: &quot; &amp; RAM &amp; &quot; - P&quot; &amp; RAMPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;[1] Proceed to checkout&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[2] Clear all&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[3] Back&quot;" newline="True"/>
+                                                                        <assign variable="totalprice" expression="CPUPrice + GPUPrice + ROMPrice + RAMPrice"/>
+                                                                        <output expression="&quot;Cart&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;CPU: &quot; &amp; CPU &amp; &quot; - P&quot; &amp; CPUPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;GPU: &quot; &amp; GPU &amp; &quot; - P&quot; &amp; GPUPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;ROM: &quot; &amp; ROM &amp; &quot; - P&quot; &amp; ROMPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;RAM: &quot; &amp; RAM &amp; &quot; - P&quot; &amp; RAMPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;Initial Total Price (Delivery Fee and VAT not included): P&quot; &amp; totalprice &amp; ToChar(13) &amp;&#13;&#10;&quot;[1] Proceed to checkout&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[2] Clear all&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[3] Back&quot;" newline="True"/>
                                                                         <input variable="cartchoice"/>
                                                                         <if expression="cartchoice = 1">
-                                                                            <then/>
+                                                                            <then>
+                                                                                <output expression="&quot;Printing reciept... (This includes the delivery fee and VAT)&quot;" newline="True"/>
+                                                                                <declare name="deliveryfee, totalvat, vatCPUPrice, vatGPUPrice, vatRAMPrice, vatROMPrice, finaltotalprice" type="Integer" array="False" size=""/>
+                                                                                <assign variable="deliveryfee" expression="200"/>
+                                                                                <assign variable="totalvat" expression="0"/>
+                                                                                <assign variable="finaltotalprice" expression="0"/>
+                                                                                <assign variable="vatCPUPrice" expression="CPUPrice * 0.12"/>
+                                                                                <assign variable="vatGPUPrice" expression="GPUPrice * 0.12"/>
+                                                                                <assign variable="vatROMPrice" expression="ROMPrice * 0.12"/>
+                                                                                <assign variable="vatRAMPrice" expression="RAMPrice * 0.12"/>
+                                                                                <assign variable="totalvat" expression="vatCPUPrice + vatGPUPrice + vatROMPrice + vatRAMPrice"/>
+                                                                                <assign variable="finaltotalprice" expression="totalvat + CPUPrice + GPUPrice + ROMPrice + RAMPrice"/>
+                                                                                <output expression="&quot;World-of-Tomorrow Official Receipt&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;================================&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;CPU: &quot; &amp; CPU &amp; &quot; - P&quot; &amp; CPUPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;CPU VAT 12% Price: P&quot; &amp; vatCPUPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;GPU: &quot; &amp; GPU &amp; &quot; - P&quot; &amp; GPUPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;GPU VAT 12% Price: P&quot; &amp; vatGPUPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;RAM: &quot; &amp; RAM &amp; &quot; - P&quot; &amp; RAMPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;RAM VAT 12% Price: P&quot; &amp; vatRAMPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;ROM: &quot; &amp; ROM &amp; &quot; - P&quot; &amp; ROMPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;ROM VAT 12% Price: P&quot; &amp; vatROMPrice &amp; ToChar(13) &amp;&#13;&#10;&quot;================================&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;Initial Total: P&quot; &amp; totalprice &amp; ToChar(13) &amp;&#13;&#10;&quot;VAT Total: P&quot; &amp; totalvat &amp; ToChar(13) &amp;&#13;&#10;&quot;Delivery Fee: P&quot; &amp; deliveryfee &amp; ToChar(13) &amp;&#13;&#10;&quot;Total Price: P&quot; &amp; finaltotalprice + deliveryfee" newline="True"/>
+                                                                                <declare name="continuation" type="Boolean" array="False" size=""/>
+                                                                                <assign variable="continuation" expression="True"/>
+                                                                                <while expression="continuation">
+                                                                                    <declare name="confchoice" type="Integer" array="False" size=""/>
+                                                                                    <output expression="&quot;Would you like to start another transaction or exit the program?&quot; &amp; ToChar(13) &amp; &#13;&#10;&quot;[1] Start another transaction&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[2] Exit program&quot;" newline="True"/>
+                                                                                    <input variable="confchoice"/>
+                                                                                    <if expression="confchoice = 1">
+                                                                                        <then>
+                                                                                            <assign variable="continuation" expression="False"/>
+                                                                                            <assign variable="cartmenu" expression="False"/>
+                                                                                            <assign variable="CPU" expression="&quot;None&quot;"/>
+                                                                                            <assign variable="GPU" expression="&quot;None&quot;"/>
+                                                                                            <assign variable="ROM" expression="&quot;None&quot;"/>
+                                                                                            <assign variable="RAM" expression="&quot;None&quot;"/>
+                                                                                            <assign variable="CPUPrice" expression="0"/>
+                                                                                            <assign variable="GPUPrice" expression="0"/>
+                                                                                            <assign variable="ROMPrice" expression="0"/>
+                                                                                            <assign variable="RAMPrice" expression="0"/>
+                                                                                        </then>
+                                                                                        <else>
+                                                                                            <if expression="confchoice = 2">
+                                                                                                <then>
+                                                                                                    <assign variable="continuation" expression="False"/>
+                                                                                                    <assign variable="cartmenu" expression="False"/>
+                                                                                                    <assign variable="componentmenu" expression="False"/>
+                                                                                                    <assign variable="menuchoice" expression="False"/>
+                                                                                                </then>
+                                                                                                <else>
+                                                                                                    <output expression="&quot;Wrong choice!&quot;" newline="True"/>
+                                                                                                </else>
+                                                                                            </if>
+                                                                                        </else>
+                                                                                    </if>
+                                                                                </while>
+                                                                            </then>
                                                                             <else>
                                                                                 <if expression="cartchoice = 2">
                                                                                     <then>
@@ -227,6 +276,7 @@
                     </else>
                 </if>
             </while>
+            <output expression="&quot;Thank you for using our service! Hope to see you again!&quot;" newline="True"/>
         </body>
     </function>
 </flowgorithm>
