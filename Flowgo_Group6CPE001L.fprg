@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rj"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-07-01 02:46:48 PM"/>
+        <attribute name="created" value="cmo7UkotQVNQSVJFNS1FT1M7MjAyNC0wNy0wMTswMjozMjozOSBQTTsyNDgx"/>
+        <attribute name="edited" value="cmo7UkotQVNQSVJFNS1FT1M7MjAyNC0wNy0wMTswMjo0Njo0OCBQTTs3OzI2MDA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="mainmenu" type="Integer" array="False" size=""/>
+            <declare name="menuchoice" type="Boolean" array="False" size=""/>
+            <assign variable="menuchoice" expression="True"/>
+            <while expression="menuchoice">
+                <output expression="&quot;Welcome to World-of-Tomorrow&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[1] Create a PC&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[2] About&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[3] Exit&quot;" newline="True"/>
+                <input variable="mainmenu"/>
+                <if expression="mainmenu = 1">
+                    <then>
+                        <declare name="componentmenu" type="Boolean" array="False" size=""/>
+                        <assign variable="componentmenu" expression="True"/>
+                        <while expression="componentmenu">
+                            <declare name="cmenuchoice" type="Integer" array="False" size=""/>
+                            <output expression="&quot;Select component/s&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[1] CPU&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[2] Memory&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[3] Graphics&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[4] Storage&quot; &amp; ToChar(13) &amp;&#13;&#10;&quot;[5] Cart&quot;" newline="True"/>
+                            <input variable="cmenuchoice"/>
+                            <if expression="cmenuchoice = 1">
+                                <then/>
+                                <else>
+                                    <if expression="cmenuchoice = 2">
+                                        <then/>
+                                        <else>
+                                            <if expression="cmenuchoice = 3">
+                                                <then/>
+                                                <else>
+                                                    <if expression="cmenuchoice = 4">
+                                                        <then/>
+                                                        <else>
+                                                            <if expression="cmenuchoice = 5">
+                                                                <then/>
+                                                                <else>
+                                                                    <output expression="&quot;Invalid choice&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </while>
+                    </then>
+                    <else>
+                        <if expression="mainmenu = 2">
+                            <then>
+                                <output expression="&quot;World of Tomorrow&quot; &amp; ToChar(13)&amp;&#13;&#10;&#13;&#10;&quot;Service created by these authors:&quot; &amp; ToChar(13)&amp;&#13;&#10;&#13;&#10;&quot;Vizconde, Rafael Jose G.&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;Perias, Anthony&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;Braga, Rovic Jay&quot; &amp; ToChar(13)&amp;&#13;&#10;&#13;&#10;&#13;&#10;&quot;Thank you for using this service!&quot;" newline="True"/>
+                            </then>
+                            <else>
+                                <if expression="mainmenu = 3">
+                                    <then>
+                                        <output expression="&quot;Exiting program&quot;" newline="True"/>
+                                        <assign variable="menuchoice" expression="False"/>
+                                    </then>
+                                    <else>
+                                        <output expression="&quot;Invalid choice&quot;" newline="True"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
