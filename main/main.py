@@ -62,7 +62,7 @@ Type your choice and press Enter to select: ''')
             elif operation == '5': # Author page
                 clear_screen()
                 print('\nWorld of Tomorrow')
-                print('v1.0.0')
+                print('v1.1.0')
                 input('''\nService created by these authors:
 
 Vizconde, Rafael Jose G.
